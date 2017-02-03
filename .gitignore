@@ -1,3 +1,8 @@
+.DS_Store
+node_modules/
+dist/
+npm-debug.log
+
 #### joe made this: http://goel.io/joe
 
 #####=== Node ===#####
@@ -56,4 +61,3 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
-
