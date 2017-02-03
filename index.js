@@ -6,12 +6,12 @@ const path = require('path')
 const fs = require('fs')
 const dirtree = require('directory-tree')
 const express = require('express')
+const contentDisposition = require('content-disposition')
 
 const pkg = require(path.join(__dirname, 'package.json'))
 
 program
   .version(pkg.version)
-  .option('--path <path>', 'path to serve (default .)')
   .option('--host <host>', 'host on which to listen to (default 127.0.0.1)')
   .option('-p --port <port>', 'port on which to listen to (default 3000)')
   .parse(process.argv)
@@ -19,14 +19,28 @@ program
 const host = program.host || '127.0.0.1'
 const port = program.port || '3000'
 
-let tree = dirtree(program.path || '.')
+let tree = dirtree('.')
 
 const options = {
   'recursive': true
 }
 
-fs.watch(program.path || '.', options, () => {
-  tree = dirtree(program.path || '.')
+fs.watch('.', options, () => {
+  tree = dirtree('.')
 })
 
 const app = express()
+app.use('/', express.static(path.join(__dirname, 'dist')))
+app.use('/api/files', express.static(process.cwd(), {
+    index: false,
+    setHeaders: function(res, path) {
+      res.setHeader('Content-Disposition', contentDisposition(path))
+    }
+}))
+app.get('/api/scan', function(req, res) {
+    res.send(tree.children)
+})
+
+app.listen(port, host)
+
+console.log(`online explorer listen on ${host}:${port}`)
