@@ -8,3 +8,4 @@ static
 .eslintignore
 .eslintrc.js
 index.html
+!dist/*
