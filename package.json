@@ -23,6 +23,9 @@
     "url": "https://github.com/helloqiu/online-explorer/issues"
   },
   "homepage": "https://github.com/helloqiu/online-explorer#readme",
+  "bin": {
+    "online-explorer": "./index.js"
+  },
   "dependencies": {
     "content-disposition": "^0.5.2",
     "directory-tree": "^1.2.0",

@@ -1,5 +1,16 @@
 # Online Explorer
 An online file explorer.
+# Usage
+```
+Usage: online-explorer [options]
+
+  Options:
+
+    -h, --help        output usage information
+    -V, --version     output the version number
+    --host <host>     host on which to listen to (default 127.0.0.1)
+    -p --port <port>  port on which to listen to (default 3000)
+```
 # License
 ```
 MIT License
