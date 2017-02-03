@@ -20,5 +20,12 @@
   "bugs": {
     "url": "https://github.com/helloqiu/online-explorer/issues"
   },
-  "homepage": "https://github.com/helloqiu/online-explorer#readme"
+  "homepage": "https://github.com/helloqiu/online-explorer#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "directory-tree": "^1.2.0"
+  },
+  "engines": {
+    "node": ">= 4.7.2"
+  }
 }
