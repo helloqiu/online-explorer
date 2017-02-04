@@ -26,18 +26,19 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td v-if="path.length > 0">
-                <a href="#" v-on:click="path.pop()">
+            <tr v-if="$route.path !== '/'">
+              <td>
+                <a href="#" v-on:click="$router.back()">
                   <i class="fa fa-arrow-left green-icon" aria-hidden="true">
                     ..
                   </i>
                 </a>
               </td>
+              <td></td>
             </tr>
             <tr v-for="file in remove_hidden_file(current_files)">
               <td>
-                <a href="#" v-on:click="click_file(file)">
+                <a v-on:click="click_file(file)">
                   <i class="fa fa-folder green-icon" aria-hidden="true" v-if="file.children"></i>
                   <i class="fa fa-file green-icon" aria-hidden="true" v-else></i>
                   {{file.name}}
@@ -61,8 +62,7 @@
     data () {
       return {
         search: '',
-        files: [],
-        path: []
+        files: []
       }
     },
     methods: {
@@ -71,7 +71,7 @@
         this.search = e.target.value
       }, 300),
       get_files (pathList, files) {
-        if (pathList.length === 0) {
+        if (pathList.length === 0 || !pathList[0]) {
           return files
         }
         for (const file of files) {
@@ -83,7 +83,7 @@
       },
       click_file (file) {
         if (file.children) {
-          this.path.push(file.name)
+          this.$router.push(file.path)
         } else {
           // eslint-disable-next-line
           window.open('/api/files/' + file.path)
@@ -123,7 +123,8 @@
         if (this.search) {
           return this.search_file(this.files)
         } else {
-          return this.get_files(this.path, this.files)
+          const pathList = this.$route.path.split('/').slice(1)
+          return this.get_files(pathList, this.files)
         }
       }
     },
