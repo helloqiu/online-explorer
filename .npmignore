@@ -9,3 +9,4 @@ static
 .eslintrc.js
 index.html
 !dist/*
+screenshot
