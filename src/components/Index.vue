@@ -35,7 +35,7 @@
                 </a>
               </td>
             </tr>
-            <tr v-for="file in current_files">
+            <tr v-for="file in remove_hidden_file(current_files)">
               <td>
                 <a href="#" v-on:click="click_file(file)">
                   <i class="fa fa-folder green-icon" aria-hidden="true" v-if="file.children"></i>
@@ -55,76 +55,84 @@
 </template>
 
 <script>
-  import _ from 'lodash';
-  import filesize from 'filesize';
-
+  import _ from 'lodash'
+  import filesize from 'filesize'
   export default {
-    data() {
+    data () {
       return {
         search: '',
         files: [],
-        path: [],
-      };
+        path: []
+      }
     },
     methods: {
       // eslint-disable-next-line
       update: _.debounce(function (e) {
-        this.search = e.target.value;
+        this.search = e.target.value
       }, 300),
-      get_files(pathList, files) {
+      get_files (pathList, files) {
         if (pathList.length === 0) {
-          return files;
+          return files
         }
         for (const file of files) {
           if (file.name === pathList[0]) {
-            return this.get_files(pathList.slice(1), file.children);
+            return this.get_files(pathList.slice(1), file.children)
           }
         }
-        return [];
+        return []
       },
-      click_file(file) {
+      click_file (file) {
         if (file.children) {
-          this.path.push(file.name);
+          this.path.push(file.name)
         } else {
           // eslint-disable-next-line
-          window.open('/api/files/' + file.path);
+          window.open('/api/files/' + file.path)
         }
       },
-      search_file(files) {
-        let result = [];
+      search_file (files) {
+        let result = []
         for (const file of files) {
           if (file.name.toLowerCase().indexOf(this.search.toLowerCase()) > 0 && !file.children) {
-            result.push(file);
+            result.push(file)
           }
           if (file.children) {
-            result = result.concat(this.search_file(file.children));
+            result = result.concat(this.search_file(file.children))
           }
         }
-        return result;
+        return result
       },
+      remove_hidden_file (files) {
+        const result = []
+        for (const file of files) {
+          if (file.name.substring(0, 1) !== '.') {
+            result.push(file)
+          }
+        }
+        return result
+      }
     },
-    created() {
+    created () {
       this.$http.get('scan')
       .then(response => response.json())
       .then((json) => {
-        this.files = json;
-      });
+        this.files = json
+      })
     },
     computed: {
-      current_files() {
+      current_files () {
         if (this.search) {
-          return this.search_file(this.files);
+          return this.search_file(this.files)
         } else {
-          return this.get_files(this.path, this.files);
+          return this.get_files(this.path, this.files)
         }
-      },
+      }
     },
     filters: {
-      size(value) {
-        return filesize(value);
-      },
-    },
-  };
+      size (value) {
+        return filesize(value)
+      }
+    }
+  }
 </script>
 
 <style>
