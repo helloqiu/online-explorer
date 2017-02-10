@@ -1,0 +1,8 @@
+screenshot
+LICENSE
+README.md
+dist
+.git
+node_modules
+.DS_Store
+front-end/node_modules
