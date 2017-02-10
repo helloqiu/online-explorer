@@ -6,7 +6,7 @@ Use npm:
 ```
 npm i online-explorer
 ```
-`Note: Please do not use the git version directly. Remember to build fist.`  
+**Note: Please do not use the git version directly. Remember to build first.**  
 
 # Usage
 ```
