@@ -1,11 +1,13 @@
-# Online Explorer
+# Online Explorer  
+[![Docker Repository on Quay](https://quay.io/repository/helloqiu/online-explorer/status "Docker Repository on Quay")](https://quay.io/repository/helloqiu/online-explorer)  
 An online file explorer.
 # Install
 Use npm:
 ```
 npm i online-explorer
 ```
-`Note: Please do not use the git version directly. Remember to build fist.`
+**Note: Please do not use the git version directly. Remember to build first.**  
+
 # Usage
 ```
 Usage: online-explorer [options]
@@ -19,14 +21,17 @@ Usage: online-explorer [options]
 ```
 Or try docker:
 ```
+docker pull quay.io/helloqiu/online-explorer
 docker run -d \
   --name online-explorer \
   --restart always \
   -p 3000:3000\
-  -v path-you-want-to-explore:/web-files helloqiu95/online-explorer
-```
+  -v path-you-want-to-explore:/web-files helloqiu/online-explorer
+```  
+
 # ScreenShot
 ![screenshot-1](/screenshot/screenshot.png?raw=true "screenshot-1")
 ![screenshot-2](/screenshot/screenshot-search.png?raw=true "screenshot-2")  
-# License
+
+# License  
 MIT
