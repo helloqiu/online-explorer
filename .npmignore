@@ -1,12 +1,5 @@
-build
-config
+front-end
 node_modules
-src
-static
-.babelrc
-.editorconfig
-.eslintignore
-.eslintrc.js
 index.html
 !dist/*
 screenshot
