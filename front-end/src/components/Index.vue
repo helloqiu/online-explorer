@@ -4,7 +4,7 @@
       <div class="container">
         <div class="nav-left">
           <a href="/" class="nav-item">
-            <i class="fa fa-folder-o green-icon" aria-hidden="true"></i>
+            <i class="icon-folder-empty green-icon" aria-hidden="true"></i>
             <p class="nav-title">Online Explorer</p>
           </a>
         </div>
@@ -29,7 +29,7 @@
             <tr v-if="$route.path !== '/'">
               <td>
                 <a href="#" v-on:click="$router.back()">
-                  <i class="fa fa-arrow-left green-icon" aria-hidden="true">
+                  <i class="icon-left-big green-icon" aria-hidden="true">
                     ..
                   </i>
                 </a>
@@ -39,8 +39,8 @@
             <tr v-for="file in remove_hidden_file(current_files)">
               <td>
                 <a v-on:click="click_file(file)">
-                  <i class="fa fa-folder green-icon" aria-hidden="true" v-if="file.children"></i>
-                  <i class="fa fa-file green-icon" aria-hidden="true" v-else></i>
+                  <i class="icon-folder green-icon" aria-hidden="true" v-if="file.children"></i>
+                  <i class="icon-doc-text-inv green-icon" aria-hidden="true" v-else></i>
                   {{file.name}}
                 </a>
               </td>
@@ -156,8 +156,5 @@
 }
 .index-body {
   padding-top: 16px;
-}
-a > .green-icon {
-  vertical-align: middle;
 }
 </style>

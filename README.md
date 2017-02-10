@@ -25,7 +25,7 @@ docker pull quay.io/helloqiu/online-explorer
 docker run -d \
   --name online-explorer \
   --restart always \
-  -p 3000:3000\
+  -p 3000:3000 \
   -v path-you-want-to-explore:/web-files quay.io/helloqiu/online-explorer
 ```  
 
