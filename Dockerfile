@@ -1,6 +1,7 @@
 FROM node:7.5.0-alpine
 
 ADD index-dev.js /online-explorer/
+ADD src/explorer.js /online-explorer/src/
 ADD package.json /online-explorer/
 ADD front-end /online-explorer/front-end
 

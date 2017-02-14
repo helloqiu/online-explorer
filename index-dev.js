@@ -3,7 +3,7 @@
 
 const program = require('commander')
 const path = require('path')
-const Explorer = require('./build/explorer.js')
+const Explorer = require('./explorer.js')
 
 const pkg = require(path.join(__dirname, 'package.json'))
 

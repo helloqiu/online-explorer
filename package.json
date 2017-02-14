@@ -5,7 +5,7 @@
   "main": "build/explorer.js",
   "author": "helloqiu <helloqiu95@gmail.com>",
   "scripts": {
-    "build": "babel index-dev.js --out-file index.js && chmod +x index.js && babel src/explorer.js --out-file build/explorer.js"
+    "build": "babel index-dev.js --out-file index.js && chmod +x index.js && babel src/explorer.js --out-file explorer.js"
   },
   "repository": {
     "type": "git",

@@ -22,7 +22,7 @@ class Explorer {
 
     const app = express()
     app.use(history())
-    app.use('/', express.static(path.join(__dirname, '../dist')))
+    app.use('/', express.static(path.join(__dirname, './dist')))
     app.use('/api/files', express.static(process.cwd(), {
       index: false,
       setHeaders: function (res, path) {
