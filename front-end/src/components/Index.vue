@@ -75,7 +75,7 @@
           return files
         }
         for (const file of files) {
-          if (file.name === pathList[0]) {
+          if (file.name === decodeURIComponent(pathList[0])) {
             return this.get_files(pathList.slice(1), file.children)
           }
         }
