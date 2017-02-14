@@ -83,7 +83,7 @@
       },
       click_file (file) {
         if (file.children) {
-          this.$router.push(file.path)
+          this.$router.push({path: `/${file.path}`})
         } else {
           // eslint-disable-next-line
           window.open('/api/files/' + file.path)
