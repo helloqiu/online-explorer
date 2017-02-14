@@ -7,6 +7,7 @@ const fs = require('fs')
 const dirtree = require('directory-tree')
 const express = require('express')
 const contentDisposition = require('content-disposition')
+const history = require('connect-history-api-fallback')
 
 const pkg = require(path.join(__dirname, 'package.json'))
 
@@ -30,6 +31,7 @@ fs.watch('.', options, () => {
 })
 
 const app = express()
+app.use(history())
 app.use('/', express.static(path.join(__dirname, 'dist')))
 app.use('/api/files', express.static(process.cwd(), {
     index: false,
