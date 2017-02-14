@@ -9,6 +9,8 @@ npm i online-explorer
 **Note: Please do not use the git version directly. Remember to build first.**  
 
 # Usage
+
+## command line  
 ```
 Usage: online-explorer [options]
 
@@ -28,6 +30,13 @@ docker run -d \
   -p 3000:3000 \
   -v path-you-want-to-explore:/web-files quay.io/helloqiu/online-explorer
 ```  
+
+## module  
+``` node
+var Explorer = require('online-explorer')
+var explorer = new Explorer(host, port, path)
+explorer.run()
+```
 
 # ScreenShot
 ![screenshot-1](/screenshot/screenshot.png?raw=true "screenshot-1")
