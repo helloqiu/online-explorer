@@ -1,8 +1,8 @@
 {
   "name": "online-explorer",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "An online file explorer",
-  "main": "build/explorer.js",
+  "main": "explorer.js",
   "author": "helloqiu <helloqiu95@gmail.com>",
   "scripts": {
     "build": "babel index-dev.js --out-file index.js && chmod +x index.js && babel src/explorer.js --out-file explorer.js"
