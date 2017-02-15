@@ -13,7 +13,9 @@ RUN cd /online-explorer/front-end \
     && npm run build \
     && npm link \
     && rm -rf front-end \
+    && rm -rf src \
     && rm index-dev.js \
+    && npm prune --production \
     && mkdir /web-files \
     && echo "Asia/Shanghai" > /etc/timezone
 
