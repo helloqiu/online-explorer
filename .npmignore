@@ -5,3 +5,7 @@ index.html
 screenshot
 index-dev.js
 !/explorer.js
+.eslintrc
+.dockerignore
+src/*
+Dockerfile
