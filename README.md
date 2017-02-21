@@ -1,8 +1,8 @@
 # Online Explorer  
 [![Docker Repository on Quay](https://quay.io/repository/helloqiu/online-explorer/status "Docker Repository on Quay")](https://quay.io/repository/helloqiu/online-explorer)  
 An online file explorer.
-# Install
-Use npm:
+# Install  
+Use npm:  
 ```
 npm i online-explorer
 ```
